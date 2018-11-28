@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092C281121AE91CC008FED3D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092C281021AE91CC008FED3D /* Constants.swift */; };
+		092C281321AE9EB9008FED3D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092C281221AE9EB9008FED3D /* LoginVC.swift */; };
 		0972275321AC047F00736BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972275221AC047F00736BD3 /* AppDelegate.swift */; };
 		0972275821AC047F00736BD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0972275621AC047F00736BD3 /* Main.storyboard */; };
 		0972275A21AC048000736BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0972275921AC048000736BD3 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		092C281021AE91CC008FED3D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		092C281221AE9EB9008FED3D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0972274F21AC047F00736BD3 /* Smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0972275221AC047F00736BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0972275721AC047F00736BD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +61,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		092C280F21AE91A5008FED3D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				092C281021AE91CC008FED3D /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		0972274621AC047F00736BD3 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +90,7 @@
 		0972275121AC047F00736BD3 /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				092C280F21AE91A5008FED3D /* Utilities */,
 				0972276B21AC729E00736BD3 /* Model */,
 				0972276A21AC729500736BD3 /* View */,
 				0972276921AC728900736BD3 /* Controller */,
@@ -106,6 +119,7 @@
 			children = (
 				0972276C21AC72F300736BD3 /* ChatVC.swift */,
 				0972276E21AC732300736BD3 /* ChannelVC.swift */,
+				092C281221AE9EB9008FED3D /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -254,9 +268,11 @@
 			files = (
 				0972276F21AC732300736BD3 /* ChannelVC.swift in Sources */,
 				0972276D21AC72F300736BD3 /* ChatVC.swift in Sources */,
+				092C281321AE9EB9008FED3D /* LoginVC.swift in Sources */,
 				09DB2A7221ADAF4D0090CB2F /* GradientView.swift in Sources */,
 				0972275321AC047F00736BD3 /* AppDelegate.swift in Sources */,
 				0972276821AC6CBD00736BD3 /* SWRevealViewController.m in Sources */,
+				092C281121AE91CC008FED3D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
