@@ -118,6 +118,53 @@ class AuthService {
         
     }
     
+    func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler) {
+        
+        let lowerCaseEmail = email.lowercased()
+        
+//        Εδω τοποθετούμε τις μεταβλητές που στέλνουμε ως http request για να κάνουμε προσθήκη του user. Κοιτάζουμε στο body του Add User(Postman).
+        let body: [String: Any] = [
+            "name": name,
+            "email": lowerCaseEmail,
+            "avatarName": avatarName,
+            "avatarColor": avatarColor
+        ]
+        
+//   Στο τι θα εμπεριέχει το header το βλέπουμε στο Postman, Add User -> Headers.
+        let header = [
+            "Authorization": "Bearer \(AuthService.instance.authToken)",
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
+        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                
+//                Τραβάμε τα δεδομένα απο το JSON
+                guard let data = response.data else { return }
+                let json = try! JSON(data: data)
+                
+//        Δημιουργούμε τις μεταβλητές που πήραμε απο την απάντηση JSON (Κοιτάζουμε στο Postman Add User στο Body στην απαντηση json κατω μέρος και βλέπουμε ποιες μεταβλητές χρειαζόμαστε.)
+                
+                let id = json["_id"].stringValue
+                let color = json["avatarColor"].stringValue
+                let avatarName = json["avatarName"].stringValue
+                let email = json["email"].stringValue
+                let name = json["name"].stringValue
+       
+//  Περνάμε τις μεταβλητές στην συναρτηση setUserData που δημιουργήσαμε στο UserDataService.swift
+                UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
+                completion(true)
+                
+            } else {
+                
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+        
+    }
+    
     
     
 }
