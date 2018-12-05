@@ -72,20 +72,34 @@ class CreateAccountVC: UIViewController {
         AuthService.instance.registerUser(email: email, password: pass) { (success) in
             if success {
                 
+//                AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
+//                    if success {
+//                        AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
+//
+//                            if success {
+//
+//                                self.spinner.isHidden = true
+//                                self.spinner.stopAnimating()
+//                                self.performSegue(withIdentifier: UNWIND, sender: nil)
+//
+//                      // Δημιουργια Notification οτι έγινε η καταχωρηση του χρήστη
+//
+//                                NotificationCenter.default.post(name: NOTIF_USER_DATA_CHANGE, object: nil)
+//
+//                            }
+//                        })
+//                    }
+//                })
                 AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
                     if success {
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
-                            
                             if success {
                                 
                                 self.spinner.isHidden = true
                                 self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
                                 
-                      // Δημιουργια Notification οτι έγινε η καταχωρηση του χρήστη
-                                
                                 NotificationCenter.default.post(name: NOTIF_USER_DATA_CHANGE, object: nil)
-                                
                             }
                         })
                     }
